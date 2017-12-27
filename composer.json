@@ -1,0 +1,27 @@
+{
+  "name": "maniakalen/workflow",
+  "description": "Linear wofkflow for step by step workout",
+  "keywords": [
+    "PHP"
+  ],
+  "license": "Open Software License (OSL 3.0)",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Petar Ivanov"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2" : ">=2.0.12",
+    "maniakalen/yii2-dbtranslate": ">=2.0.0",
+    "maniakalen/callback": ">=1.0.0",
+    "maniakalen/widgets": ">=1.0.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "maniakalen\\": "src/"
+    }
+  }
+}

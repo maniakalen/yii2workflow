@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="workflow" default="deploy_git">
+    <property name="repo.dir" value="./" />
+    <resolvepath propertyName="repo.dir" file="${repo.dir}" />
+
+    <fileset id="files" dir=".">
+        <exclude name=".idea/**" />
+        <exclude name="**/phpcs.xml" />
+        <exclude name="vendor/**" />
+    </fileset>
+    <target name="deploy_git">
+        <resetmemory limit="1G" />
+        <resetincludepath />
+
+
+
+        <gitcommit repository="C:/Users/peter.georgiev/PhpstormProjects/Workflow" message="Automated commit" allFiles="true" />
+
+        <gitpush repository="C:/Users/peter.georgiev/PhpstormProjects/Workflow" tags="true" />
+    </target>
+
+    <adhoc-task name="resetincludepath"><![CDATA[
+            class FixIncludePath extends Task {
+
+                public function main() {
+                    set_include_path('C:/Users/peter.georgiev/tools/php' . PATH_SEPARATOR . 'C:/Users/peter.georgiev/tools/php/pear' . PATH_SEPARATOR . str_replace('\\', '/', get_include_path()));
+                }
+            }
+        ]]></adhoc-task>
+    <adhoc-task name="mydie"><![CDATA[
+            class MyDie extends Task {
+                private $message;
+                public function setMessage($msg)
+                {
+                    $this->message = $msg;
+                }
+                public function main() {
+                    die($this->message);
+                }
+            }
+        ]]></adhoc-task>
+    <adhoc-task name="resetmemory"><![CDATA[
+            class ResetMemoryLimit extends Task {
+                private $limit = '512M';
+                public function setLimit($limit)
+                {
+                    if (!preg_match('@(\d+)+([GMKT])@', $limit)) {
+                        throw new \Exception('Malformed memory limit');
+                    }
+
+                    $this->limit = $limit;
+                }
+                public function main() {
+                    ini_set('memory_limit', $this->limit);
+                }
+            }
+        ]]></adhoc-task>
+</project>
