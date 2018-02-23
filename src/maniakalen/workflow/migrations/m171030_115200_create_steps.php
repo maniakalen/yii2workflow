@@ -19,7 +19,6 @@ class m171030_115200_create_steps extends \yii\db\Migration
             'id' => $this->primaryKey(),
             'workflow_id' => $this->integer()->notNull(),
             'parent_id' => $this->integer()->null(),
-            'next_id' => $this->integer()->null(),
             'status_id' => $this->integer(),
             'view' => $this->string(128),
             'class' => $this->string(255),
@@ -37,15 +36,6 @@ class m171030_115200_create_steps extends \yii\db\Migration
             'workflow_steps',
             'id',
             'CASCADE'
-        );
-
-        $this->addForeignKey(
-            'fk-workflow_steps-next_id',
-            'workflow_steps',
-            'next_id',
-            'workflow_steps',
-            'id',
-            'RESTRICT'
         );
 
         $this->addForeignKey(

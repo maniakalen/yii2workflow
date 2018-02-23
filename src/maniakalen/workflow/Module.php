@@ -11,7 +11,7 @@
  * @link     - 
  */
 
-namespace linear\workflow;
+namespace maniakalen\workflow;
 
 use Yii;
 use yii\base\BootstrapInterface;
@@ -46,11 +46,11 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public function init()
     {
         parent::init();
-        Yii::setAlias('@workflow', dirname(__FILE__));
-        $config = include Yii::getAlias('@workflow/config/main.php');
+        Yii::setAlias('@maniakalen/workflow', dirname(__FILE__));
+        $config = include Yii::getAlias('@maniakalen/workflow/config/main.php');
         Yii::configure($this, $config);
         if (!$this->controllerNamespace) {
-            $this->controllerNamespace = Yii::getAlias('@workflow\controllers');
+            $this->controllerNamespace = Yii::getAlias('@maniakalen/workflow/controllers');
         }
 
         $this->prepareEvents();
