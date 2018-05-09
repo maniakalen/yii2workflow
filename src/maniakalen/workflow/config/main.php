@@ -12,17 +12,29 @@
  */
 
 return [
-    'components' => [
-
-    ],
-    'container' => [
-        'definitions' => [
-            'yii\console\controllers\MigrateController' => [
-                'class' => 'yii\console\controllers\MigrateController',
-                'migrationPath' => [
-                    '@workflow/migrations'
-                ]
-            ]
+    'appComponents' => [
+        'i18n' => [
+            'translations' => [
+                'workflow*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@maniakalen/workflow/messages',
+                ],
+            ],
+        ],
+        'callback' => [
+            'class' => 'maniakalen\callback\components\CallbacksManager'
         ]
-    ]
+    ],
+    'app' => [
+        'base' => [
+            'controllerMap' => [
+                'migrate' => [
+                    'migrationNamespaces' => [
+                        //'console\migrations', // Common migrations for the whole application
+                        'maniakalen\workflow\migrations', // Migrations for the specific project's module
+                    ],
+                ],
+            ],
+        ]
+    ],
 ];

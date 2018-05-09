@@ -1,4 +1,5 @@
 <?php
+namespace maniakalen\workflow\migrations;
 /**
  * PHP Version 5.5
  *
@@ -11,11 +12,11 @@
  * @link     $LINK$ $END$
  */
 
-class m171030_173900_create_restrictions extends \yii\db\Migration
+class m180411_173900_create_restrictions extends \yii\db\Migration
 {
-    public function up()
+    public function safeUp()
     {
-        $this->createTable('workflow_step_restrictions', [
+        $this->createTable('{{%workflow_step_restrictions}}', [
             'id' => $this->primaryKey(),
             'group_id' => $this->integer()->notNull(),
             'restriction_type' => "ENUM('callback', 'field')",
@@ -23,18 +24,9 @@ class m171030_173900_create_restrictions extends \yii\db\Migration
             'comparison' => "ENUM('>', '<', '=', '!=')",
             'value' => $this->string(),
         ]);
-        $this->addForeignKey(
-            'fk-workflow_rest_steps-step_id',
-            'workflow_step_restrictions',
-            'group_id',
-            'workflow_step_restrictions_groups',
-            'id',
-            'CASCADE'
-        );
-
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('workflow_step_restrictions');
     }
