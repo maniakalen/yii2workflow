@@ -177,7 +177,7 @@ class AdminController extends Controller
             ],
             'workflow-restriction-groups-grid' => [
                 'class' => 'maniakalen\admingui\actions\Grid',
-                'createActionRoute' => ['workflow-restriction-groups-create'],
+                'createActionRoute' => ['workflow-restriction-group-create'],
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
                     'model' => 'maniakalen\workflow\models\WorkflowStepRestrictionsGroups'

@@ -2,7 +2,12 @@
 
 namespace maniakalen\workflow\models;
 
+use maniakalen\admingui\interfaces\GridModelInterface;
+use maniakalen\widgets\ActiveForm;
+use maniakalen\widgets\interfaces\ActiveFormModel;
 use Yii;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "workflow_step_restrictions".
@@ -17,6 +22,7 @@ use Yii;
  * @property WorkflowStepRestrictionsGroups $group
  */
 class WorkflowStepRestrictions extends \yii\db\ActiveRecord
+    implements GridModelInterface, ActiveFormModel
 {
     /**
      * @inheritdoc
@@ -61,5 +67,67 @@ class WorkflowStepRestrictions extends \yii\db\ActiveRecord
     public function getGroup()
     {
         return $this->hasOne(WorkflowStepRestrictionsGroups::class, ['id' => 'group_id']);
+    }
+
+    public function getFieldsSignature()
+    {
+        $rules = [
+            static::SCENARIO_DEFAULT => [
+                'group_id' => [
+                    'type' => ActiveForm::FIELD_TYPE_DROPDOWN,
+                    'items' => ArrayHelper::map(WorkflowStepRestrictionsGroups::findAll(['status' => 1]), 'id', 'title')
+                ],
+                'restriction_type' => [
+                    'type' => ActiveForm::FIELD_TYPE_DROPDOWN,
+                    'items' => ['field' => 'Field', 'callback' => 'Calback'],
+                ],
+
+                'restriction' => ['type' => ActiveForm::FIELD_TYPE_TEXT, 'options' => ['max' => 255]],
+                'comparison' => [
+                    'type' => ActiveForm::FIELD_TYPE_DROPDOWN,
+                    'items' => ['>', '<', '=', '!='],
+                ],
+                'value' => ['type' => ActiveForm::FIELD_TYPE_TEXT, 'options' => ['max' => 255]],
+            ],
+        ];
+        $scenario = $this->getScenario();
+        return isset($rules[$scenario])?$rules[$scenario]:[];
+    }
+
+    public function getCreateAction()
+    {
+        return Url::to(['workflow-restriction-create']);
+    }
+
+    public function getUpdateAction()
+    {
+        return Url::to(['workflow-restriction-details-edit']);
+    }
+
+    public function getFormBlocks()
+    {
+        return [];
+    }
+
+    public function getGridColumnsDefinition()
+    {
+        return [
+            [
+                'attribute' => 'group_id',
+                'value' => function($m) {
+                    $obj = WorkflowStepRestrictionsGroups::findOne($m->group_id);
+                    return $obj?$obj->name:Yii::t('workflow', 'None');
+                }
+            ],
+            [
+                'attribute' => 'restriction_type',
+                'value' => function($m) {
+                    return ucfirst($m->restriction_type);
+                }
+            ],
+            'restriction',
+            'comparison',
+            'value'
+        ];
     }
 }
