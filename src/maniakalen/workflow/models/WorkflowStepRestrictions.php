@@ -29,7 +29,7 @@ class WorkflowStepRestrictions extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'workflow_step_restrictions';
+        return '{{%m_workflow_step_restrictions}}';
     }
 
     /**

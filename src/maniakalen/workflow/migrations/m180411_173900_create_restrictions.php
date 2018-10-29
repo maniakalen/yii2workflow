@@ -16,7 +16,7 @@ class m180411_173900_create_restrictions extends \yii\db\Migration
 {
     public function safeUp()
     {
-        $this->createTable('{{%workflow_step_restrictions}}', [
+        $this->createTable('{{%m_workflow_step_restrictions}}', [
             'id' => $this->primaryKey(),
             'group_id' => $this->integer()->notNull(),
             'restriction_type' => "ENUM('callback', 'field')",

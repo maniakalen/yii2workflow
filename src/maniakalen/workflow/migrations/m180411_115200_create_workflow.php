@@ -22,7 +22,7 @@ class m180411_115200_create_workflow extends \yii\db\Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
         $this->createTable(
-            '{{%workflow}}',
+            '{{%m_workflow}}',
             [
             'id' => $this->primaryKey(),
             'url_route' => $this->string(45)->notNull(),

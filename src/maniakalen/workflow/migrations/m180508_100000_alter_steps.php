@@ -21,7 +21,7 @@ class m180508_100000_alter_steps extends \yii\db\Migration
     public function safeUp()
     {
         try {
-            $this->addColumn('{{%workflow_steps}}', 'auth_item_name', $this->string(64));
+            $this->addColumn('{{%m_workflow_steps}}', 'auth_item_name', $this->string(64));
 
             return true;
         } catch (\Exception $ex) {
@@ -35,7 +35,7 @@ class m180508_100000_alter_steps extends \yii\db\Migration
     public function safeDown()
     {
         try {
-            $this->dropColumn('{{%workflow_steps}}', 'auth_item_name');
+            $this->dropColumn('{{%m_workflow_steps}}', 'auth_item_name');
 
             return true;
         } catch (\Exception $ex) {

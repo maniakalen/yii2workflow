@@ -16,7 +16,7 @@ class m180411_173900_create_restriction_groups extends \yii\db\Migration
 {
     public function safeUp()
     {
-        $this->createTable('{{%workflow_step_restrictions_groups}}', [
+        $this->createTable('{{%m_workflow_step_restrictions_groups}}', [
             'id' => $this->primaryKey(),
             'step_id' => $this->integer()->null(),
             'action_id' => $this->integer()->null(),

@@ -39,7 +39,7 @@ class WorkflowSteps
      */
     public static function tableName()
     {
-        return 'workflow_steps';
+        return '{{%m_workflow_steps}}';
     }
 
     /**

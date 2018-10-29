@@ -1,0 +1,13 @@
+.main-menu .menu-item-workflows ul {
+    display: none;
+    background-color: black;
+    height: auto;
+}
+
+.main-menu .menu-item-workflows:hover ul {
+    display: block;
+}
+
+.main-menu .menu-item-workflows ul li {
+    float: none;
+}

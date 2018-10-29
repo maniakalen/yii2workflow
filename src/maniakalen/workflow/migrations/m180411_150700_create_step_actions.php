@@ -20,7 +20,7 @@ class m180411_150700_create_step_actions extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
         $this->createTable(
-            '{{%workflow_step_actions}}',
+            '{{%m_workflow_step_actions}}',
             [
                 'id' => $this->primaryKey(),
                 'workflow_step_id' => $this->integer(),

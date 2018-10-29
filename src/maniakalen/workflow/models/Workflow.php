@@ -31,7 +31,7 @@ class Workflow
      */
     public static function tableName()
     {
-        return 'workflow';
+        return '{{%m_workflow}}';
     }
 
     /**
