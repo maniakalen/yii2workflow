@@ -13,7 +13,7 @@ use yii\web\AssetBundle;
 
 class BackendAssets extends AssetBundle
 {
-    public $sourcePath = '@maniakalen\workflow/resources';
+    public $sourcePath = '@maniakalen/workflow/resources';
 
     public $css = [
         'css/backend.css',
