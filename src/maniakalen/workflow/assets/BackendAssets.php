@@ -9,7 +9,9 @@
 namespace maniakalen\workflow\assets;
 
 
-class BackendAssets
+use yii\web\AssetBundle;
+
+class BackendAssets extends AssetBundle
 {
     public $sourcePath = '@maniakalen\workflow/resources';
 
