@@ -30,7 +30,7 @@ class m180412_150700_create_indices_and_forein_keys extends Migration
                     $this->addForeignKey('idx_fk_workflow_steps_wf_id', '{{%m_workflow_steps}}', 'workflow_id', '{{%m_workflow}}', 'id', 'CASCADE', 'CASCADE');
                 }
                 $this->addForeignKey('idx_fk_workflow_steps_parent_id', '{{%m_workflow_steps}}', 'parent_id', '{{%m_workflow_steps}}', 'id', 'CASCADE', 'CASCADE');
-                $this->createIndex('idx_uq_workflow_steps_order_idx', '{{%m_workflow_steps}}', ['workflow_id', 'parent_id', 'order_index'], true);
+                $this->createIndex('idx_uq_workflow_steps_order_idx', '{{%m_workflow_steps}}', ['workflow_id', 'parent_id'], true);
                 $this->createIndex('idx_status_workflow_steps', '{{%m_workflow_steps}}', 'status');
             }
             /** Workflow actions */
