@@ -34,21 +34,21 @@ class m180417_100000_define_permissions extends \yii\db\Migration
                 ['name', 'type', 'description', 'created_at', 'updated_at'],
                 [
                     [
-                        'maniakalen\workflow\view',
+                        'maniakalen/workflow/view',
                         Item::TYPE_PERMISSION,
                         'Permissions to view the configured workflows',
                         $time,
                         $time
                     ],
                     [
-                        'maniakalen\workflow\edit',
+                        'maniakalen/workflow/edit',
                         Item::TYPE_PERMISSION,
                         'Permissions to edit workflow configurations',
                         $time,
                         $time
                     ],
                     [
-                        'maniakalen\workflow\delete',
+                        'maniakalen/workflow/delete',
                         Item::TYPE_PERMISSION,
                         'Permissions to delete workflows',
                         $time,
@@ -83,9 +83,9 @@ class m180417_100000_define_permissions extends \yii\db\Migration
                     'in',
                     'name',
                     [
-                        'maniakalen\workflow\view',
-                        'maniakalen\workflow\edit',
-                        'maniakalen\workflow\delete'
+                        'maniakalen/workflow/view',
+                        'maniakalen/workflow/edit',
+                        'maniakalen/workflow/delete'
                     ]
                 ]
             );
