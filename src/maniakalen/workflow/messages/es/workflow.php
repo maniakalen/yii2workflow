@@ -7,5 +7,5 @@
  */
 
 return [
-    'Create' => 'Grear',
+    'Create' => 'Crear',
 ];
