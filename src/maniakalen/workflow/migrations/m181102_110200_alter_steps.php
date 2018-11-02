@@ -6,6 +6,7 @@ namespace maniakalen\workflow\migrations;
  * Date: 02/11/2018
  * Time: 11:03
  */
+use Yii;
 
 class m181102_110200_alter_steps extends \yii\db\Migration
 {
