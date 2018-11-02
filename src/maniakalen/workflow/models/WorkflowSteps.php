@@ -49,7 +49,7 @@ class WorkflowSteps
     {
         return [
             [['workflow_id', 'url_route', 'service_class'], 'required'],
-            [['workflow_id', 'parent_id', 'prev_step_id'], 'integer'],
+            [['workflow_id', 'parent_id'], 'integer'],
             [['parent_id'], 'validateParent'],
             [['url_route'], 'string', 'max' => 45],
             [['auth_item_name'], 'string', 'max' => 64],
@@ -59,7 +59,6 @@ class WorkflowSteps
             //[['workflow_id', 'parent_id', 'order_index'], 'unique', 'targetAttribute' => ['workflow_id', 'parent_id', 'order_index']],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => WorkflowSteps::class, 'targetAttribute' => ['parent_id' => 'id']],
             [['workflow_id'], 'exist', 'skipOnError' => true, 'targetClass' => Workflow::class, 'targetAttribute' => ['workflow_id' => 'id']],
-            [['prev_step_id'], 'exist', 'skipOnError' => true, 'targetClass' => WorkflowSteps::class, 'targetAttribute' => ['prev_step_id' => 'id']],
         ];
     }
 
