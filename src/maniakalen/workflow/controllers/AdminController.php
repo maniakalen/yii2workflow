@@ -34,7 +34,7 @@ class AdminController extends Controller
                             'workflow-steps-actions-grid',
                         ],
                         'allow' => true,
-                        'roles' => ['maniakalen\workflow\view'],
+                        'roles' => ['maniakalen/workflow/view'],
                     ],
                     [
                         'actions' => [
@@ -66,7 +66,7 @@ class AdminController extends Controller
                             'workflow-step-action-create',
                         ],
                         'allow' => true,
-                        'roles' => ['maniakalen\workflow\edit'],
+                        'roles' => ['maniakalen/workflow/edit'],
                     ],
                     [
                         'actions' => [
@@ -78,7 +78,7 @@ class AdminController extends Controller
                             'workflow-step-action-delete'
                         ],
                         'allow' => true,
-                        'roles' => ['maniakalen\workflow\delete'],
+                        'roles' => ['maniakalen/workflow/delete'],
                     ],
                 ],
             ],
