@@ -1,4 +1,5 @@
 <?php
+namespace maniakalen\workflow\migrations;
 /**
  * Created by PhpStorm.
  * User: peter.georgiev

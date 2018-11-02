@@ -26,14 +26,14 @@ class WorkflowController extends Controller
                             'render',
                         ],
                         'allow' => true,
-                        'roles' => ['maniakalen\workflow\view'],
+                        'roles' => ['maniakalen/workflow/view'],
                     ],
                     [
                         'actions' => [
                             'process',
                         ],
                         'allow' => true,
-                        'roles' => ['maniakalen\workflow\edit'],
+                        'roles' => ['maniakalen/workflow/edit'],
                     ],
                 ],
             ],
