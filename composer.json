@@ -6,6 +6,7 @@
   ],
   "license": "proprietary",
   "type": "library",
+  "version": "0.1.10",
   "authors": [
     {
       "name": "Petar Ivanov"
