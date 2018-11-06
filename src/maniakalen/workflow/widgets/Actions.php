@@ -50,7 +50,6 @@ class Actions extends Widget
     protected function input($name, $options)
     {
         $type = ArrayHelper::remove($options, 'type', 'submit');
-        $options = ArrayHelper::merge(['value' => \Yii::t('workflow', $name)], $options);
-        return Html::input($type, "action[$name]", $options);
+        return Html::input($type, "action[$name]", \Yii::t('workflow', $name), $options);
     }
 }
