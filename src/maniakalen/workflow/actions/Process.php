@@ -11,6 +11,7 @@ namespace maniakalen\workflow\actions;
 use maniakalen\workflow\interfaces\WorkflowManagerInterface;
 use Yii;
 use yii\base\Action;
+use yii\di\Instance;
 
 class Process extends Action
 {
