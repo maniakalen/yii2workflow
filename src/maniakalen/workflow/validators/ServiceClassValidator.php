@@ -14,6 +14,7 @@ use yii\validators\Validator;
 
 class ServiceClassValidator extends Validator
 {
+    public $interface;
     public function init()
     {
         parent::init();
@@ -25,7 +26,7 @@ class ServiceClassValidator extends Validator
         try {
             $valueDecoded = (array)json_decode($value) or $valueDecoded = $value;
             $object = \Yii::createObject($valueDecoded);
-            if ($object instanceof StepServiceInterface) {
+            if ($object instanceof $this->interface) {
                 return null;
             }
         } catch (\Exception $ex) {

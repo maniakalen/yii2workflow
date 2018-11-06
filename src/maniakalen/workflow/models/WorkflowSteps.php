@@ -54,7 +54,7 @@ class WorkflowSteps
             [['url_route'], 'string', 'max' => 45],
             [['auth_item_name'], 'string', 'max' => 64],
             [['service_class', 'name'], 'string', 'max' => 255],
-            [['service_class'], ServiceClassValidator::class],
+            [['service_class'], ServiceClassValidator::class, 'interface' => 'maniakalen\workflow\interfaces\StepServiceInterface'],
             [['status'], 'boolean'],
             //[['workflow_id', 'parent_id', 'order_index'], 'unique', 'targetAttribute' => ['workflow_id', 'parent_id', 'order_index']],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => WorkflowSteps::class, 'targetAttribute' => ['parent_id' => 'id']],

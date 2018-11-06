@@ -43,7 +43,7 @@ class WorkflowActions
             [['type', 'styles'], 'string'],
             [['name'], 'string', 'max' => 45],
             [['service_class'], 'string', 'max' => 255],
-            [['service_class'], ServiceClassValidator::class],
+            [['service_class'], ServiceClassValidator::class, 'interface' => 'maniakalen\workflow\interfaces\ActionServiceInterface'],
             [['status'], 'boolean'],
         ];
     }
