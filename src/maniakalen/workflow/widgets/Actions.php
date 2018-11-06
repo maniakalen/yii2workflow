@@ -24,9 +24,11 @@ class Actions extends Widget
     public function run()
     {
         echo Html::ul($this->actions, ['item' => function($item, $k) {
-            $tag = $item->type;
-            $options = json_decode($item->styles, JSON_UNESCAPED_UNICODE);
-            $name = $item->name;
+            $action = $item->action;
+            $tag = $action->type;
+            $options = json_decode($action->styles, JSON_UNESCAPED_UNICODE);
+            $options['action_id'] = $item->id;
+            $name = $action->name;
 
             return $this->$tag($name, $options);
         }]);
@@ -50,6 +52,7 @@ class Actions extends Widget
     protected function input($name, $options)
     {
         $type = ArrayHelper::remove($options, 'type', 'submit');
-        return Html::input($type, "action[$name]", \Yii::t('workflow', $name), $options);
+        $id = ArrayHelper::remove($options, 'action_id', 0);
+        return Html::input($type, "action[$id]", \Yii::t('workflow', $name), $options);
     }
 }

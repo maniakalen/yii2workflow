@@ -134,6 +134,7 @@ class WorkflowManager
      * @return ActionServiceInterface
      * @throws BadRequestHttpException
      * @throws NotFoundHttpException
+     * @throws InvalidConfigException
      */
     protected function getRequestAction(array $post)
     {
@@ -151,6 +152,7 @@ class WorkflowManager
          * @var ActionServiceInterface $actionService
          */
         $actionService = (array)json_decode($action->service_class) or $actionService = $action->service_class;
+        $actionService = \Yii::createObject($actionService);
         if ($stepAction->callback) {
             $actionService->setCallback($stepAction->callback);
         }

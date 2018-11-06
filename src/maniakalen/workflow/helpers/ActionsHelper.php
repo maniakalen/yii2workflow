@@ -16,10 +16,6 @@ class ActionsHelper
 {
     public static function fetchActions($step, $group)
     {
-        return ArrayHelper::map(
-            WorkflowStepActions::findAll(['workflow_step_id' => $step, 'display_group' => $group]),
-            'id',
-            'action'
-        );
+        return WorkflowStepActions::findAll(['workflow_step_id' => $step, 'display_group' => $group]);
     }
 }
