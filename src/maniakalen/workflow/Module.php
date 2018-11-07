@@ -42,6 +42,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public $appComponents;
     public $app;
     public $appTypes = [];
+    public $appendRoutes = true;
     /**
      * Module initialisation
      *
@@ -146,7 +147,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
                 $item = str_replace('[module]', $this->id, $item);
                 $routes[$key] = $item;
             }
-            $app->getUrlManager()->addRules($routes, true);
+            $app->getUrlManager()->addRules($routes, $this->appendRoutes);
         }
     }
 

@@ -20,7 +20,7 @@ class Actions extends Widget
 {
     /** @var WorkflowActions[] $actions */
     public $actions;
-
+    public $translationCategory = 'workflow';
     public function run()
     {
         echo Html::ul($this->actions, ['item' => function($item, $k) {
@@ -46,13 +46,13 @@ class Actions extends Widget
         if ($url !== '#') {
             $url = Url::to($url);
         }
-        return Html::a(\Yii::t('workflow', $name), $url, $options);
+        return Html::a(\Yii::t($this->translationCategory, $name), $url, $options);
     }
 
     protected function input($name, $options)
     {
         $type = ArrayHelper::remove($options, 'type', 'submit');
         $id = ArrayHelper::remove($options, 'action_id', 0);
-        return Html::input($type, "action[$id]", \Yii::t('workflow', $name), $options);
+        return Html::input($type, "action[$id]", \Yii::t($this->translationCategory, $name), $options);
     }
 }
