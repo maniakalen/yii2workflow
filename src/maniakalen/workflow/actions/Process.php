@@ -31,7 +31,10 @@ class Process extends Action
     {
         $post = Yii::$app->request->post();
         $get = Yii::$app->request->get();
-        $this->manager->processRequest($get, $post);
+        $result = $this->manager->processRequest($get, $post);
+        if (!is_bool($result)) {
+            return $result;
+        }
         return $this->controller->refresh();
     }
 }
