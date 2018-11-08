@@ -152,7 +152,7 @@ class WorkflowStepActions
                 'contentOptions' => ['class' => 'actionIcons'],/* add class to <td> of action icons */
                 'template' => '<div class="icoBox">{workflow-step-action-details} {workflow-step-action-delete}</div>',
                 'buttons' => [
-                    'workflow-step-details' => function ($url, $model) {
+                    'workflow-step-action-details' => function ($url, $model) {
                         $options = [
                             'class' => 'col-md-4',
                             'title' => \Yii::t('workflow', 'Workflow step action details'),
@@ -161,15 +161,15 @@ class WorkflowStepActions
                         ];
                         return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, $options);
                     },
-                    'workflow-step-delete' => function ($url, $model) {
+                    'workflow-step-action-delete' => function ($url, $model) {
                         $options = [
                             'class' => 'col-md-4',
                             'title' => \Yii::t('workflow', 'Workflow step action delete'),
                             'aria-label' => \Yii::t('workflow', 'Workflow step action delete'),
                             'id' => 'workflow_step_action_details_' . $model->id,
                             'onclick' => 'confirmModal({"id":"confirm_modal"}).done(function() { 
-                                window.redirect = $(this).attr("href"); 
-                            }); return false;'
+                                window.location = $(this).attr("href"); return true;
+                            }.bind(this)); return false;'
                         ];
                         return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, $options);
                     }

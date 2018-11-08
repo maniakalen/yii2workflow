@@ -253,7 +253,7 @@ class WorkflowSteps
                             'aria-label' => \Yii::t('workflow', 'Workflow step delete'),
                             'id' => 'workflow_step_details_' . $model->id,
                             'onclick' => 'confirmModal({"id":"confirm_modal"}).done(function() { 
-                                window.redirect = $(this).attr("href"); 
+                                window.location = $(this).attr("href"); 
                             }); return false;'
                         ];
                         return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, $options);
