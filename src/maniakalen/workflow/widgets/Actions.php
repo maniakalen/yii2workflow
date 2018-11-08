@@ -57,4 +57,12 @@ class Actions extends Widget
         $value = str_replace('[value]', \Yii::t($this->translationCategory, $name), $valueTemplate);
         return Html::input($type, "action[$id]", $value, $options);
     }
+    protected function button($name, $options)
+    {
+        $id = ArrayHelper::remove($options, 'action_id', 0);
+        $valueTemplate = ArrayHelper::remove($options, 'valueTemp', '[value]');
+        $value = str_replace('[value]', \Yii::t($this->translationCategory, $name), $valueTemplate);
+        $options['name'] = "action[$id]";
+        return Html::button($value, $options);
+    }
 }
