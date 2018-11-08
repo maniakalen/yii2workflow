@@ -114,7 +114,7 @@ class WorkflowActions
         $rules = [
             static::SCENARIO_DEFAULT => [
                 'name' => ['type' => ActiveForm::FIELD_TYPE_TEXT, 'options' => ['max' => 255]],
-                'type' => ['type' => ActiveForm::FIELD_TYPE_DROPDOWN, 'items' => ['a' => 'link', 'input' => 'button']],
+                'type' => ['type' => ActiveForm::FIELD_TYPE_DROPDOWN, 'items' => ['a' => 'link', 'input' => 'input', 'button' => 'button']],
                 'styles' => ['type' => ActiveForm::FIELD_TYPE_TEXT],
                 'service_class' => ['type' => ActiveForm::FIELD_TYPE_TEXT, 'options' => ['max' => 255]],
                 'status' => ['type' => ActiveForm::FIELD_TYPE_CHECKBOX, 'label' => Yii::t('workflow', 'active')]
