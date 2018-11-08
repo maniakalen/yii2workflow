@@ -13,7 +13,8 @@ class m181108_110200_alter_actions extends \yii\db\Migration
     public function safeUp()
     {
         try {
-            $this->alterColumn('{{%m_workflow_actions}}', 'name', $this->integer(255));
+            $this->alterColumn('{{%m_workflow_actions}}', 'name', $this->string(255));
+            $this->alterColumn('{{%m_workflow_actions}}', 'type', "ENUM('a', 'input', 'button')");
 
             return true;
         } catch (\Exception $ex) {
@@ -27,8 +28,8 @@ class m181108_110200_alter_actions extends \yii\db\Migration
     public function safeDown()
     {
         try {
-            $this->alterColumn('{{%m_workflow_actions}}', 'name', $this->integer(45));
-
+            $this->alterColumn('{{%m_workflow_actions}}', 'name', $this->string(45));
+            $this->alterColumn('{{%m_workflow_actions}}', 'type', "ENUM('a', 'input')");
             return true;
         } catch (\Exception $ex) {
             Yii::error('Failed to revert column', 'workflow');
