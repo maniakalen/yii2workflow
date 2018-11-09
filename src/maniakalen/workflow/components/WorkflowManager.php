@@ -89,7 +89,7 @@ class WorkflowManager
         /** @var StepServiceInterface $service */
         $stepService = (array)json_decode($step->service_class) or $stepService = $step->service_class;
         $service = \Yii::createObject($stepService);
-        $service->setStep($this);
+        $service->setStep($step);
         $service->setGetRequestParams($get);
         return $service;
     }
