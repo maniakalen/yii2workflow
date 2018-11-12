@@ -86,7 +86,7 @@ class WorkflowSteps
      */
     public function getParent()
     {
-        return $this->hasOne(WorkflowSteps::class, ['id' => 'parent_id']);
+        return $this->hasOne(WorkflowSteps::class, ['id' => 'parent_id'])->where(['status' => 1]);
     }
 
     /**
@@ -94,7 +94,7 @@ class WorkflowSteps
      */
     public function getChildren()
     {
-        return $this->hasMany(WorkflowSteps::class, ['parent_id' => 'id']);
+        return $this->hasMany(WorkflowSteps::class, ['parent_id' => 'id'])->where(['status' => 1]);
     }
 
     /**
@@ -102,7 +102,7 @@ class WorkflowSteps
      */
     public function getWorkflowSteps()
     {
-        return $this->hasMany(WorkflowSteps::class, ['parent_id' => 'id']);
+        return $this->hasMany(WorkflowSteps::class, ['parent_id' => 'id'])->where(['status' => 1]);
     }
 
     /**
@@ -110,7 +110,7 @@ class WorkflowSteps
      */
     public function getWorkflow()
     {
-        return $this->hasOne(Workflow::class, ['id' => 'workflow_id']);
+        return $this->hasOne(Workflow::class, ['id' => 'workflow_id'])->where(['status' => 1]);
     }
 
     public function getFieldsSignature()
@@ -175,12 +175,12 @@ class WorkflowSteps
 
     public function getNextStep()
     {
-        return $this->hasOne(WorkflowSteps::class, ['prev_step_id' => 'id']);
+        return $this->hasOne(WorkflowSteps::class, ['prev_step_id' => 'id'])->where(['status' => 1]);
     }
 
     public function getPrevStep()
     {
-        return $this->hasOne(WorkflowSteps::class, ['id' => 'prev_step_id']);
+        return $this->hasOne(WorkflowSteps::class, ['id' => 'prev_step_id'])->where(['status' => 1]);
     }
 
     public function save($runValidation = true, $attributeNames = null)

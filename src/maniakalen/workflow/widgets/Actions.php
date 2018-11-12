@@ -28,7 +28,7 @@ class Actions extends Widget
             $tag = $action->type;
             $options = json_decode($action->styles, JSON_UNESCAPED_UNICODE);
             $options['action_id'] = $item->id;
-            $name = $action->name;
+            $name = $item->name?:$action->name;
 
             return $this->$tag($name, $options);
         }]);
