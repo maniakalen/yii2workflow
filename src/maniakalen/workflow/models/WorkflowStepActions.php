@@ -100,7 +100,7 @@ class WorkflowStepActions
 
     public function getUpdateAction()
     {
-        return Url::to(['workflow-step-action-edit', 'id' => $this->id]);
+        return Url::to(['workflow-step-action-details', 'id' => $this->id]);
     }
 
     public function getFormBlocks()

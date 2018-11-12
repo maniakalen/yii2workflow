@@ -50,7 +50,7 @@ class AdminController extends Controller
                             'workflow-action-details-edit',
                             'workflow-restriction-groups-details-edit',
                             'workflow-restriction-details-edit',
-                            'workflow-step-action-edit',
+                            'workflow-step-action-details-edit',
 
                             'workflow-toggle',
                             'workflow-step-toggle',
@@ -104,7 +104,7 @@ class AdminController extends Controller
                     'workflow-action-details-edit' => ['post'],
                     'workflow-restriction-groups-details-edit' => ['post'],
                     'workflow-restriction-details-edit' => ['post'],
-                    'workflow-step-action-edit' => ['post'],
+                    'workflow-step-action-details-edit' => ['post'],
 
                     'workflow-create' => ['post', 'get'],
                     'workflow-step-create' => ['post', 'get'],
