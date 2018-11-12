@@ -92,6 +92,14 @@ class WorkflowSteps
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getChildren()
+    {
+        return $this->hasMany(WorkflowSteps::class, ['parent_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getWorkflowSteps()
     {
         return $this->hasMany(WorkflowSteps::class, ['parent_id' => 'id']);
