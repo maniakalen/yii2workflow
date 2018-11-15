@@ -185,10 +185,12 @@ class WorkflowSteps
 
     public function save($runValidation = true, $attributeNames = null)
     {
-        if ($this->prev_step_id) {
-            $prevStep = static::findOne($this->prev_step_id);
-            if ($prevStep) {
-                $prevNextStep = $prevStep->nextStep;
+        if ($this->status) {
+            if ($this->prev_step_id) {
+                $prevStep = static::findOne($this->prev_step_id);
+                if ($prevStep) {
+                    $prevNextStep = $prevStep->nextStep;
+                }
             }
         }
         if (parent::save($runValidation, $attributeNames)) {
@@ -197,10 +199,17 @@ class WorkflowSteps
                 if (!$prevNextStep->save(false)) {
                     \Yii::error("Fail to reset prev_step_id for " . $prevNextStep->id . " to " . $this->id, "workflow");
                 }
+            } else if (!$this->status) {
+                $nextStep = $this->nextStep;
+                $nextStep->prev_step_id = $this->prev_step_id;
+                if (!$nextStep->save(false)) {
+                    \Yii::error("Fail to reset prev_step_id for " . $nextStep->id . " to " . $this->id, "workflow");
+                }
             }
             return true;
         }
         return false;
+
     }
 
     public function getGridColumnsDefinition()
@@ -269,5 +278,10 @@ class WorkflowSteps
                 ]
             ]
         ];
+    }
+
+    public function getTitle()
+    {
+        return $this->name;
     }
 }
