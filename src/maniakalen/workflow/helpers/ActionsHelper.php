@@ -14,8 +14,9 @@ use yii\helpers\ArrayHelper;
 
 class ActionsHelper
 {
-    public static function fetchActions($step, $group)
+    public static function fetchActions($step, $group, $conditions = [])
     {
-        return WorkflowStepActions::findAll(['workflow_step_id' => $step, 'display_group' => $group]);
+        $conditions = ArrayHelper::merge($conditions, ['workflow_step_id' => $step, 'display_group' => $group]);
+        return WorkflowStepActions::findAll($conditions);
     }
 }
