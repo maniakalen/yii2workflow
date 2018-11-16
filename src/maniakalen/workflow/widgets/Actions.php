@@ -10,7 +10,7 @@ namespace maniakalen\workflow\widgets;
 
 
 use maniakalen\workflow\exceptions\WorkflowException;
-use maniakalen\workflow\models\WorkflowActions;
+use maniakalen\workflow\models\WorkflowStepActions;
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -18,13 +18,16 @@ use yii\helpers\Url;
 
 class Actions extends Widget
 {
-    /** @var WorkflowActions[] $actions */
+    /** @var WorkflowStepActions[] $actions */
     public $actions;
     public $translationCategory = 'workflow';
     public function run()
     {
         echo Html::ul($this->actions, ['item' => function($item, $k) {
             $action = $item->action;
+            if (!$action->status) {
+                return '';
+            }
             $tag = $action->type;
             $options = json_decode($action->styles, JSON_UNESCAPED_UNICODE);
             $options['action_id'] = $item->id;
