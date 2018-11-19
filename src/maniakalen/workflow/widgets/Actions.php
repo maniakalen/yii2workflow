@@ -24,6 +24,9 @@ class Actions extends Widget
     public function run()
     {
         echo Html::ul($this->actions, ['item' => function($item, $k) {
+            if (!\Yii::$app->user->can($item->auth_item_name)) {
+                return '';
+            }
             $action = $item->action;
             if (!$action->status) {
                 return '';
