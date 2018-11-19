@@ -41,6 +41,7 @@ class WorkflowActions
         return [
             [['name', 'service_class'], 'required'],
             [['type', 'styles'], 'string'],
+            [['type'], 'range', 'range' => ['a', 'input', 'button']],
             [['name'], 'string', 'max' => 45],
             [['service_class'], 'string', 'max' => 255],
             [['service_class'], ServiceClassValidator::class, 'interface' => 'maniakalen\workflow\interfaces\ActionServiceInterface'],

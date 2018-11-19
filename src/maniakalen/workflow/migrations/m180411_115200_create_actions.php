@@ -26,7 +26,7 @@ class m180411_115200_create_actions extends \yii\db\Migration
             [
                 'id' => $this->primaryKey(),
                 'name' => $this->string(45)->notNull(),
-                'type' => "ENUM('a', 'input')",
+                'type' => "ENUM('a', 'input', 'button')",
                 'styles' => $this->text(),
                 'service_class' => $this->string(255)->notNull(),
                 'status' => $this->boolean(),
