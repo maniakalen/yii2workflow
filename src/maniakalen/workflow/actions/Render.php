@@ -28,10 +28,17 @@ class Render extends Action
         $this->manager = Instance::ensure($this->manager, 'maniakalen\workflow\interfaces\WorkflowManagerInterface');
     }
 
+    /**
+     * @return string
+     * @throws \HttpException
+     */
     public function run()
     {
         $get = \Yii::$app->request->get();
         $content = $this->manager->renderRequest($get, $this->controller->getView());
+        if (!$content) {
+            throw new \HttpException("Failed to render request");
+        }
         if ($content instanceof Response) {
             return $content;
         }
