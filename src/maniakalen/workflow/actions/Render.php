@@ -12,6 +12,7 @@ namespace maniakalen\workflow\actions;
 use maniakalen\workflow\interfaces\WorkflowManagerInterface;
 use yii\base\Action;
 use yii\di\Instance;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class Render extends Action
@@ -30,14 +31,14 @@ class Render extends Action
 
     /**
      * @return string
-     * @throws \HttpException
+     * @throws NotFoundHttpException
      */
     public function run()
     {
         $get = \Yii::$app->request->get();
         $content = $this->manager->renderRequest($get, $this->controller->getView());
         if (!$content) {
-            throw new \HttpException("Failed to render request");
+            throw new NotFoundHttpException("Failed to render request");
         }
         if ($content instanceof Response) {
             return $content;
