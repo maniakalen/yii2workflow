@@ -19,9 +19,9 @@ use yii\helpers\Url;
  * @property int $status
  * @property int $target_step_id
  *
- * @property WorkflowStepRestrictions[] $workflowStepRestrictions
+ * @property WorkflowRestrictions[] $workflowRestrictions
  */
-class WorkflowStepRestrictionsGroups extends \yii\db\ActiveRecord
+class WorkflowRestrictionsGroups extends \yii\db\ActiveRecord
     implements GridModelInterface, ActiveFormModel
 {
     /**
@@ -29,7 +29,7 @@ class WorkflowStepRestrictionsGroups extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%m_workflow_step_restrictions_groups}}';
+        return '{{%m_workflow_restrictions_groups}}';
     }
 
     /**
@@ -63,9 +63,9 @@ class WorkflowStepRestrictionsGroups extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getWorkflowStepRestrictions()
+    public function getWorkflowRestrictions()
     {
-        return $this->hasMany(WorkflowStepRestrictions::class, ['group_id' => 'id']);
+        return $this->hasMany(WorkflowRestrictions::class, ['group_id' => 'id']);
     }
 
     public function getFieldsSignature()

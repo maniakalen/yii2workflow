@@ -19,9 +19,9 @@ use yii\helpers\Url;
  * @property string $comparison
  * @property string $value
  *
- * @property WorkflowStepRestrictionsGroups $group
+ * @property WorkflowRestrictionsGroups $group
  */
-class WorkflowStepRestrictions extends \yii\db\ActiveRecord
+class WorkflowRestrictions extends \yii\db\ActiveRecord
     implements GridModelInterface, ActiveFormModel
 {
     /**
@@ -29,7 +29,7 @@ class WorkflowStepRestrictions extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%m_workflow_step_restrictions}}';
+        return '{{%m_workflow_restrictions}}';
     }
 
     /**
@@ -42,7 +42,7 @@ class WorkflowStepRestrictions extends \yii\db\ActiveRecord
             [['group_id'], 'integer'],
             [['restriction_type', 'restriction', 'comparison'], 'string'],
             [['value'], 'string', 'max' => 255],
-            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => WorkflowStepRestrictionsGroups::class, 'targetAttribute' => ['group_id' => 'id']],
+            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => WorkflowRestrictionsGroups::class, 'targetAttribute' => ['group_id' => 'id']],
         ];
     }
 
@@ -66,7 +66,7 @@ class WorkflowStepRestrictions extends \yii\db\ActiveRecord
      */
     public function getGroup()
     {
-        return $this->hasOne(WorkflowStepRestrictionsGroups::class, ['id' => 'group_id']);
+        return $this->hasOne(WorkflowRestrictionsGroups::class, ['id' => 'group_id']);
     }
 
     public function getFieldsSignature()
@@ -75,7 +75,7 @@ class WorkflowStepRestrictions extends \yii\db\ActiveRecord
             static::SCENARIO_DEFAULT => [
                 'group_id' => [
                     'type' => ActiveForm::FIELD_TYPE_DROPDOWN,
-                    'items' => ArrayHelper::map(WorkflowStepRestrictionsGroups::findAll(['status' => 1]), 'id', 'title')
+                    'items' => ArrayHelper::map(WorkflowRestrictionsGroups::findAll(['status' => 1]), 'id', 'title')
                 ],
                 'restriction_type' => [
                     'type' => ActiveForm::FIELD_TYPE_DROPDOWN,
@@ -115,7 +115,7 @@ class WorkflowStepRestrictions extends \yii\db\ActiveRecord
             [
                 'attribute' => 'group_id',
                 'value' => function($m) {
-                    $obj = WorkflowStepRestrictionsGroups::findOne($m->group_id);
+                    $obj = WorkflowRestrictionsGroups::findOne($m->group_id);
                     return $obj?$obj->name:Yii::t('workflow', 'None');
                 }
             ],

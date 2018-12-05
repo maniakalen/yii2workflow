@@ -180,7 +180,7 @@ class AdminController extends Controller
                 'createActionRoute' => ['workflow-restriction-group-create'],
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictionsGroups'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictionsGroups'
                 ],
             ],
             'workflow-restrictions-grid' => [
@@ -188,7 +188,7 @@ class AdminController extends Controller
                 'createActionRoute' => ['workflow-restriction-create'],
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictions'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictions'
                 ],
             ],
             'workflow-steps-actions-grid' => [
@@ -230,14 +230,14 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Details',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictionsGroups'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictionsGroups'
                 ],
             ],
             'workflow-restriction-details' => [
                 'class' => 'maniakalen\admingui\actions\Details',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictions'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictions'
                 ],
             ],
             'workflow-step-action-details' => [
@@ -293,7 +293,7 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Update',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictionsGroups'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictionsGroups'
                 ],
                 'redirect' => 'workflow-restriction-groups-details',
                 'messages' => [
@@ -305,7 +305,7 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Update',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictions'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictions'
                 ],
                 'redirect' => 'workflow-restriction-details',
                 'messages' => [
@@ -371,7 +371,7 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Create',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictionsGroups'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictionsGroups'
                 ],
                 'messages' => [
                     'success' =>  \Yii::t('workflow', 'Record created successfully'),
@@ -383,7 +383,7 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Create',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictions'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictions'
                 ],
                 'messages' => [
                     'success' =>  \Yii::t('workflow', 'Record created successfully'),
@@ -446,7 +446,7 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Toggle',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictionsGroups'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictionsGroups'
                 ],
                 'messages' => [
                     'success' =>  \Yii::t('workflow', 'Record status toggled successfully'),
@@ -457,7 +457,7 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Toggle',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictions'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictions'
                 ],
                 'messages' => [
                     'success' =>  \Yii::t('workflow', 'Record status toggled successfully'),
@@ -508,7 +508,7 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Delete',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictionsGroups'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictionsGroups'
                 ],
                 'messages' => [
                     'success' =>  \Yii::t('workflow', 'Record deleted successfully'),
@@ -519,7 +519,7 @@ class AdminController extends Controller
                 'class' => 'maniakalen\admingui\actions\Delete',
                 'manager' => [
                     'class' => 'maniakalen\admingui\components\ModelManager',
-                    'model' => 'maniakalen\workflow\models\WorkflowStepRestrictions'
+                    'model' => 'maniakalen\workflow\models\WorkflowRestrictions'
                 ],
                 'messages' => [
                     'success' =>  \Yii::t('workflow', 'Record deleted successfully'),
