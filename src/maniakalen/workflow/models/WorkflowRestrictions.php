@@ -42,6 +42,7 @@ class WorkflowRestrictions extends \yii\db\ActiveRecord
             [['group_id'], 'integer'],
             [['restriction_type', 'restriction', 'comparison'], 'string'],
             [['value'], 'string', 'max' => 255],
+            [['apply_type'], 'in', 'range' => ["render", "process"]],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => WorkflowRestrictionsGroups::class, 'targetAttribute' => ['group_id' => 'id']],
         ];
     }
@@ -76,6 +77,10 @@ class WorkflowRestrictions extends \yii\db\ActiveRecord
                 'group_id' => [
                     'type' => ActiveForm::FIELD_TYPE_DROPDOWN,
                     'items' => ArrayHelper::map(WorkflowRestrictionsGroups::findAll(['status' => 1]), 'id', 'title')
+                ],
+                'apply_type' => [
+                    'type' => ActiveForm::FIELD_TYPE_DROPDOWN,
+                    'items' => ["render" => "render", "process" => "process"]
                 ],
                 'restriction_type' => [
                     'type' => ActiveForm::FIELD_TYPE_DROPDOWN,
@@ -116,7 +121,7 @@ class WorkflowRestrictions extends \yii\db\ActiveRecord
                 'attribute' => 'group_id',
                 'value' => function($m) {
                     $obj = WorkflowRestrictionsGroups::findOne($m->group_id);
-                    return $obj?$obj->name:Yii::t('workflow', 'None');
+                    return $obj?$obj->title:Yii::t('workflow', 'None');
                 }
             ],
             [
@@ -125,6 +130,7 @@ class WorkflowRestrictions extends \yii\db\ActiveRecord
                     return ucfirst($m->restriction_type);
                 }
             ],
+            'apply_type',
             'restriction',
             'comparison',
             'value'
