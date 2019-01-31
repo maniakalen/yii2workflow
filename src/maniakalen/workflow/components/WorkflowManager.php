@@ -176,4 +176,16 @@ class WorkflowManager
     {
         return $step->workflowSteps;
     }
+
+    /**
+     * @param array $get
+     *
+     * @return string
+     * @throws NotFoundHttpException
+     */
+    public function getWorkflowLayout(array $get)
+    {
+        $workflow = $this->getWorkflowFromRequest($get);
+        return $workflow->layout;
+    }
 }

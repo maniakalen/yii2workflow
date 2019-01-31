@@ -21,4 +21,11 @@ interface WorkflowManagerInterface
      * @return string
      */
     public function renderRequest(array $get, View $view);
+
+    /**
+     * @param array $get
+     *
+     * @return mixed
+     */
+    public function getWorkflowLayout(array $get);
 }

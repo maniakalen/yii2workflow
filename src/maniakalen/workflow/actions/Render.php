@@ -43,6 +43,10 @@ class Render extends Action
         if ($content instanceof Response) {
             return $content;
         }
+        $layout = $this->manager->getWorkflowLayout($get);
+        if ($layout) {
+            $this->controller->layout = $layout;
+        }
         return $this->controller->renderContent($content);
     }
 }

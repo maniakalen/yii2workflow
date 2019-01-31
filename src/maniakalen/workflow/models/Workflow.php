@@ -19,7 +19,7 @@ use yii\helpers\Url;
  * @property string $description
  * @property int $status
  * @property int $auto_transit
- *
+ * @property string $layout
  * @property WorkflowSteps[] $workflowSteps
  */
 class Workflow
