@@ -44,7 +44,7 @@ class Workflow
             [['url_route'], 'required', 'skipOnEmpty' => true, 'on' => ModelManagerInterface::MODEL_SCENARIO_SEARCH],
             [['description'], 'string'],
             [['url_route'], 'string', 'max' => 45],
-            [['name'], 'string', 'max' => 255],
+            [['name', 'layout'], 'string', 'max' => 255],
             [['status', 'auto_transit'], 'boolean'],
         ];
     }
@@ -78,6 +78,7 @@ class Workflow
             'name',
             'description',
             'url_route',
+            'layout',
             [
                 'attribute' => 'auto_transit',
                 'value' => function ($model) {
@@ -131,6 +132,7 @@ class Workflow
             static::SCENARIO_DEFAULT => [
                 'url_route' => ['type' => ActiveForm::FIELD_TYPE_TEXT, 'options' => ['max' => 45]],
                 'name' => ['type' => ActiveForm::FIELD_TYPE_TEXT, 'options' => ['max' => 255]],
+                'layout' => ['type' => ActiveForm::FIELD_TYPE_TEXT, 'options' => ['max' => 255]],
                 'description' => ['type' => ActiveForm::FIELD_TYPE_TEXTAREA],
                 'status' => ['type' => ActiveForm::FIELD_TYPE_CHECKBOX],
                 'auto_transit' => ['type' => ActiveForm::FIELD_TYPE_CHECKBOX],

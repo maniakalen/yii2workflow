@@ -32,5 +32,9 @@
       "type": "git",
       "url": "https://github.com/maniakalen/yii2-admin-gui.git"
     }
-  ]
+  ],
+  "scripts": {
+    "post-install-cmd": ["./yii migrate/up"],
+    "post-update-cmd": ["./yii migrate/up"]
+  }
 }
