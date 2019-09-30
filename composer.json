@@ -17,7 +17,7 @@
     "yiisoft/yii2" : ">=2.0.12",
     "maniakalen/callback": ">=1.0.0",
     "maniakalen/widgets": "~1.1",
-    "maniakalen/admingui": "~0.1"
+    "maniakalen/admingui": "~1"
   },
   "autoload": {
     "psr-0": {
