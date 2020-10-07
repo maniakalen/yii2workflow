@@ -141,7 +141,8 @@ class WorkflowManager
         if (!isset($post['action'])) {
             throw new BadRequestHttpException("No action provided in post");
         }
-        list($actionId,) = $post['action'];
+        $keys = $post['action'];
+        $actionId = reset($keys);
         $stepAction = WorkflowStepActions::findOne($actionId);
         if (!$stepAction) {
             throw new BadRequestHttpException("No action found with id provided");
